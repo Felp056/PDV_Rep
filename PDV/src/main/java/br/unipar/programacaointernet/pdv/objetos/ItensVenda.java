@@ -4,8 +4,19 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigDecimal;
+
 @Getter
 @Setter
 @Entity
 public class ItensVenda {
+    @Id
+    int id;
+    BigDecimal valor_unitario;
+    BigDecimal  valor_total;
+    BigDecimal  quantidade;
+    @ManyToOne
+    Produto produto;
+    @ManyToOne
+    Venda venda;
 }
