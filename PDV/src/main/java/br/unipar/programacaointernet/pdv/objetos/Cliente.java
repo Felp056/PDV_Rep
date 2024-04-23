@@ -9,5 +9,7 @@ import lombok.Setter;
 @Entity
 public class Cliente {
     @Id
-    int Id;
+    int id;
+    String nome;
+    String telefone;
 }
