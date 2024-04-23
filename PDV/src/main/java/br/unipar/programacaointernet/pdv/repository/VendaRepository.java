@@ -1,13 +1,12 @@
 package br.unipar.programacaointernet.pdv.repository;
 
-import br.unipar.programacaointernet.pdv.objetos.Cliente;
 import br.unipar.programacaointernet.pdv.objetos.Venda;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import java.util.List;
 @Stateless
-public class vendaRepository {
+public class VendaRepository {
     @PersistenceContext(unitName = "HibernateJava")
     private EntityManager em;
 
