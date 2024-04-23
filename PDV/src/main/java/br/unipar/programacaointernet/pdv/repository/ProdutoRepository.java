@@ -11,7 +11,7 @@ public class ProdutoRepository {
     private EntityManager em;
 
     public List<Produto> getAll(){
-        List<Produto> produtos = em.createQuery("select p from Produto p", Produto.class).getResultList();
+        return em.createQuery("select p from Produto p", Produto.class).getResultList();
     }
 
     public Produto getById(int id)
