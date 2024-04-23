@@ -1,6 +1,7 @@
 package br.unipar.programacaointernet.pdv.controller;
 
 import br.unipar.programacaointernet.pdv.objetos.Cliente;
+import br.unipar.programacaointernet.pdv.service.ClienteService;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.Application;
