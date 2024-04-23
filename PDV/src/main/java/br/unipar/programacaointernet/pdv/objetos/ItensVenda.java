@@ -15,7 +15,7 @@ public class ItensVenda {
     BigDecimal valor_unitario;
     BigDecimal  valor_total;
     BigDecimal  quantidade;
-    @OneToOne
+    @ManyToOne
     Produto produto;
     @ManyToOne
     Venda venda;
