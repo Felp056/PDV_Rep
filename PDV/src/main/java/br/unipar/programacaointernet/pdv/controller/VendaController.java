@@ -1,37 +1,38 @@
 package br.unipar.programacaointernet.pdv.controller;
 
 import br.unipar.programacaointernet.pdv.objetos.Cliente;
+import br.unipar.programacaointernet.pdv.objetos.Venda;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
-@Path("/cliente")
-public class ClienteController {
+@Path("/Vendas")
+public class VendaController {
 
     @Inject
-    private ClienteService service;
+    private VendaService service;
 
     @GET
     @Produces(value = MediaType.APPLICATION_JSON)
-    public Response getClientes () {
+    public Response getVenda () {
         return Response.ok(service.listar()).build();
     }
 
     @GET
     @Produces(value = MediaType.APPLICATION_JSON)
-    public Response getClienteById (Integer id) {
+    public Response getVendaById (Integer id) {
         return Response.ok(service.listarById(id)).build();
     }
 
     @POST
     @Produces(value = MediaType.APPLICATION_JSON)
     @Consumes(value = MediaType.APPLICATION_JSON)
-    public Response addCliente (Cliente cliente) {
+    public Response addVenda (Venda venda) {
         try {
-            service.cadastrar(cliente);
+            service.cadastrar(venda);
             return Response.status(201)
-                    .entity(cliente)
+                    .entity(venda)
                     .build();
         } catch (Exception ex) {
             return Response.status(403)
@@ -43,9 +44,9 @@ public class ClienteController {
     @DELETE
     @Produces(value = MediaType.APPLICATION_JSON)
     @Consumes(value = MediaType.APPLICATION_JSON)
-    public Response deleteCliente (Cliente cliente) {
+    public Response deleteVenda (Venda venda) {
         try {
-            service.deletar(cliente);
+            service.deletar(venda);
             return Response.status(201)
                     .entity("Cliente deletado com sucesso!")
                     .build();
@@ -55,7 +56,5 @@ public class ClienteController {
                     .build();
         }
     }
-
-
 
 }
