@@ -12,6 +12,7 @@ public class ProdutoRepository {
 
     public List<Produto> getAll(){
         List<Produto> produtos = em.createQuery("select p from Produto p", Produto.class).getResultList();
+        return produtos;
     }
 
     public Produto getById(int id)
