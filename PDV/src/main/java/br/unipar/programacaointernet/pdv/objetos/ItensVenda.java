@@ -11,9 +11,13 @@ import java.math.BigDecimal;
 @Entity
 public class ItensVenda {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
+    @Column
     BigDecimal valor_unitario;
+    @Column
     BigDecimal  valor_total;
+    @Column
     BigDecimal  quantidade;
     @ManyToOne
     Produto produto;

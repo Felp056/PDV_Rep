@@ -9,7 +9,12 @@ import lombok.Setter;
 @Entity
 public class Cliente {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
+
+    @Column
     String nome;
+
+    @Column
     String telefone;
 }

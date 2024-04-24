@@ -12,8 +12,11 @@ import java.nio.MappedByteBuffer;
 @Entity
 public class Venda {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
+    @Column
     BigDecimal total;
+    @Column
     String observacoes;
     @ManyToOne
     Cliente cliente;

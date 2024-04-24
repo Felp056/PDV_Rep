@@ -2,10 +2,11 @@ package br.unipar.programacaointernet.pdv.service;
 
 import br.unipar.programacaointernet.pdv.objetos.Produto;
 import br.unipar.programacaointernet.pdv.repository.ProdutoRepository;
+import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
 
 import java.util.List;
-
+@Stateless
 public class ProdutoService {
 
     @Inject
