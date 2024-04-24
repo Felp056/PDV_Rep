@@ -6,7 +6,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import java.util.List;
 @Stateless
-public class IitensVendaRepository {
+public class ItensVendaRepository {
     @PersistenceContext(unitName = "HibernateJava")
     private EntityManager em;
 
