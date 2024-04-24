@@ -21,12 +21,14 @@ public class ProdutoController {
     }
 
     @GET
+    @Path("/id")
     @Produces(value = MediaType.APPLICATION_JSON)
     public Response getProdutoById (Integer id) {
         return Response.ok(service.listarById(id)).build();
     }
 
     @POST
+    @Path("/add")
     @Produces(value = MediaType.APPLICATION_JSON)
     @Consumes(value = MediaType.APPLICATION_JSON)
     public Response addProduto (Produto produto) {
@@ -43,6 +45,7 @@ public class ProdutoController {
     }
 
     @DELETE
+    @Path("/del")
     @Produces(value = MediaType.APPLICATION_JSON)
     @Consumes(value = MediaType.APPLICATION_JSON)
     public Response deleteProduto (Produto produto) {

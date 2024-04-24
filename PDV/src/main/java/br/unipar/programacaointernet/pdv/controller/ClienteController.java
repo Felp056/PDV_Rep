@@ -20,12 +20,14 @@ public class ClienteController {
     }
 
     @GET
+    @Path("/id")
     @Produces(value = MediaType.APPLICATION_JSON)
     public Response getClienteById (Integer id) {
         return Response.ok(service.listarById(id)).build();
     }
 
     @POST
+    @Path("/add")
     @Produces(value = MediaType.APPLICATION_JSON)
     @Consumes(value = MediaType.APPLICATION_JSON)
     public Response addCliente (Cliente cliente) {
@@ -42,6 +44,7 @@ public class ClienteController {
     }
 
     @DELETE
+    @Path("/del")
     @Produces(value = MediaType.APPLICATION_JSON)
     @Consumes(value = MediaType.APPLICATION_JSON)
     public Response deleteCliente (Cliente cliente) {
