@@ -2,6 +2,7 @@ package br.unipar.programacaointernet.pdv.controller;
 
 import br.unipar.programacaointernet.pdv.objetos.Produto;
 import br.unipar.programacaointernet.pdv.objetos.Venda;
+import br.unipar.programacaointernet.pdv.service.ProdutoService;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
