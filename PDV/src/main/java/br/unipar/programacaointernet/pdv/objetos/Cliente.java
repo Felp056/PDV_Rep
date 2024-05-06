@@ -17,4 +17,7 @@ public class Cliente {
 
     @Column
     String telefone;
+
+    @Column
+    String dataNascimento;
 }
