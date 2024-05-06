@@ -6,6 +6,8 @@ import lombok.Setter;
 import br.unipar.programacaointernet.pdv.objetos.Cliente;
 import java.math.BigDecimal;
 import java.nio.MappedByteBuffer;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -20,4 +22,9 @@ public class Venda {
     String observacoes;
     @ManyToOne
     Cliente cliente;
+
+    @OneToMany(mappedBy = "venda", orphanRemoval = true,
+    cascade = CascadeType.ALL,
+    fetch = FetchType.EAGER)
+    private List<ItensVenda> itens = new ArrayList<>();
 }
