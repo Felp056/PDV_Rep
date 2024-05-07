@@ -26,6 +26,13 @@ public class ClienteController {
         return Response.ok(service.listarById(id)).build();
     }
 
+    @GET
+    @Path("/telefoneaniversario")
+    @Produces(value = MediaType.APPLICATION_JSON)
+    public Response getClienteTelefoneAniversario() {
+        return Response.ok(service.listarClienteTelefoneAniversario()).build();
+    }
+
     @POST
     @Path("/add")
     @Produces(value = MediaType.APPLICATION_JSON)
@@ -60,6 +67,21 @@ public class ClienteController {
         }
     }
 
-
+    @PUT
+    @Path("/update")
+    @Produces(value = MediaType.APPLICATION_JSON)
+    @Consumes(value = MediaType.APPLICATION_JSON)
+    public Response updateCliente (Cliente cliente) {
+        try {
+            service.atualizar(cliente);
+            return Response.status(201)
+                    .entity("Cliente atualizado com sucesso!")
+                    .build();
+        } catch (Exception ex) {
+            return Response.status(403)
+                    .entity(ex.getMessage())
+                    .build();
+        }
+    }
 
 }
