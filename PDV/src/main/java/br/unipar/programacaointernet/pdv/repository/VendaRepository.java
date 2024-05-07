@@ -1,5 +1,7 @@
 package br.unipar.programacaointernet.pdv.repository;
 
+import br.unipar.programacaointernet.pdv.dto.VendaDto;
+import br.unipar.programacaointernet.pdv.mapper.*;
 import br.unipar.programacaointernet.pdv.objetos.Venda;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
@@ -9,6 +11,7 @@ import java.util.List;
 public class VendaRepository {
     @PersistenceContext(unitName = "HibernateJava")
     private EntityManager em;
+    private vendaMapper mapper = new vendaMapper();
 
     public List<Venda> getAll(){
         String jpql = "SELECT c FROM Venda c";
@@ -45,6 +48,22 @@ public class VendaRepository {
        }catch (Exception e){
            e.printStackTrace();
        }
+    }
+
+    public String GerarRelatorioVendas()
+    {
+        List<VendaDto> vv = mapper.toDto(getAll());
+        String Lista = "";
+        for(VendaDto v : vv){
+            int Tot = 0;
+            for(int i = 0; i < vv.size(); i++){
+                if(vv.get(i).getNomeCliente().equals(v.getNomeCliente())){
+                    Tot++;
+                }
+            }
+            Lista += v.getNomeCliente() + " Qtd Compras :"+Tot+"/n";
+        }
+        return Lista;
     }
 
 }

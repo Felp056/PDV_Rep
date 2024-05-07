@@ -27,4 +27,7 @@ public class VendaService {
     public void deletar(Venda venda) {
         repository.remove(venda);
     }
+
+   public String GerarRelatorio() { return repository.GerarRelatorioVendas();}
+
 }
