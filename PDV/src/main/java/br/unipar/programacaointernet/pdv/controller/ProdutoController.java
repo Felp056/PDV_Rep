@@ -27,8 +27,15 @@ public class ProdutoController {
         return Response.ok(service.listarById(id)).build();
     }
 
+    @GET
+    @Path("/produtodescricao")
+    @Produces(value = MediaType.APPLICATION_JSON)
+    public Response getProdutoDescricao() {
+        return Response.ok(service.listarProdutoDescricao()).build();
+    }
+
     @POST
-    @Path("/add")
+    @Path("/add")   
     @Produces(value = MediaType.APPLICATION_JSON)
     @Consumes(value = MediaType.APPLICATION_JSON)
     public Response addProduto (Produto produto) {

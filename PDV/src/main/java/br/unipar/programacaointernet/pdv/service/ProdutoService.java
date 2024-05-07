@@ -1,5 +1,7 @@
 package br.unipar.programacaointernet.pdv.service;
 
+import br.unipar.programacaointernet.pdv.dto.ProdutoDescricaoValorDTO;
+import br.unipar.programacaointernet.pdv.mapper.ProdutoMapper;
 import br.unipar.programacaointernet.pdv.objetos.Produto;
 import br.unipar.programacaointernet.pdv.repository.ProdutoRepository;
 import jakarta.ejb.Stateless;
@@ -26,5 +28,11 @@ public class ProdutoService {
 
     public void deletar(Produto produto) {
         repository.delete(produto);
+    }
+
+    public List<ProdutoDescricaoValorDTO> listarProdutoDescricao() {
+        List<Produto> produtoList = repository.getAll();
+
+        return ProdutoMapper.toDTO(produtoList);
     }
 }
