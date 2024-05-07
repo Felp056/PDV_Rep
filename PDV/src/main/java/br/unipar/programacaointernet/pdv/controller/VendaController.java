@@ -1,12 +1,15 @@
 package br.unipar.programacaointernet.pdv.controller;
 
-import br.unipar.programacaointernet.pdv.objetos.Cliente;
+import br.unipar.programacaointernet.pdv.dto.VendaDto;
 import br.unipar.programacaointernet.pdv.objetos.Venda;
 import br.unipar.programacaointernet.pdv.service.VendaService;
+import br.unipar.programacaointernet.pdv.mapper.*;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+
+import java.util.List;
 
 @Path("/Vendas")
 public class VendaController {
@@ -61,4 +64,19 @@ public class VendaController {
         }
     }
 
+    @POST
+    @Path("/Relatorio")
+    @Produces(value = MediaType.APPLICATION_JSON)
+    public Response GerarRelatorio () {
+        try {
+            String List = service.GerarRelatorio();
+            return Response.status(201)
+                    .entity(List)
+                    .build();
+        } catch (Exception ex) {
+            return Response.status(403)
+                    .entity(ex.getMessage())
+                    .build();
+        }
+    }
 }
