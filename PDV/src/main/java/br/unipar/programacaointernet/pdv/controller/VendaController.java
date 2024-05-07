@@ -30,6 +30,13 @@ public class VendaController {
         return Response.ok(service.listarById(id)).build();
     }
 
+    @GET
+    @Path("/totalvenda")
+    @Produces(value = MediaType.APPLICATION_JSON)
+    public Response gerTotalVendaCliente () {
+        return Response.ok(service.totalVendaCliente()).build();
+    }
+
     @POST
     @Path("/add")
     @Produces(value = MediaType.APPLICATION_JSON)
