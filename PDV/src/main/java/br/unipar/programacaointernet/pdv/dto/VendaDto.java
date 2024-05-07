@@ -13,5 +13,5 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 public class VendaDto {
     private String nomeCliente;
-    private BigDecimal totalVendas;
+    private int totalVendas;
 }

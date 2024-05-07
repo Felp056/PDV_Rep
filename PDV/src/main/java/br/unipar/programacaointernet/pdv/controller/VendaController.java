@@ -71,15 +71,12 @@ public class VendaController {
         }
     }
 
-    @POST
+    @GET
     @Path("/Relatorio")
     @Produces(value = MediaType.APPLICATION_JSON)
     public Response GerarRelatorio () {
         try {
-            String List = service.GerarRelatorio();
-            return Response.status(201)
-                    .entity(List)
-                    .build();
+            return Response.ok(service.GerarRelatorio()).build();
         } catch (Exception ex) {
             return Response.status(403)
                     .entity(ex.getMessage())

@@ -10,15 +10,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class VendaMapper {
-    public List<VendaDto> toDto(List<Venda> vendas)
-    {
-        List<VendaDto> vendaDtos = new ArrayList<>();
-        for (Venda venda : vendas){
-            VendaDto vendaDto = new VendaDto();
-            vendaDto.setNomeCliente(venda.getCliente().getNome());
-            vendaDto.setTotalVendas(venda.getTotal());
+
+    public static List<VendaDto> toDto(List<Venda> vendas, List<Cliente> clientes) {
+        List<VendaDto> lista = new ArrayList<>();
+
+        for (Cliente cliente : clientes) {
+            VendaDto dto = new VendaDto();
+            dto.setNomeCliente(cliente.getNome());
+
+            int cont = 0;
+            for (Venda venda : vendas) {
+                if (cliente == venda.getCliente()) {
+                    cont++;
+                }
+            }
+
+            dto.setTotalVendas(cont);
+
+            lista.add(dto);
         }
-        return vendaDtos;
+
+        return lista;
     }
 
     public static List<TotalVendaClienteDTO> toDTO(List<Cliente> clientes, List<Venda> vendas){

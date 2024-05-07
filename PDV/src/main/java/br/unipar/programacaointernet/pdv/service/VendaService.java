@@ -1,6 +1,7 @@
 package br.unipar.programacaointernet.pdv.service;
 
 import br.unipar.programacaointernet.pdv.dto.TotalVendaClienteDTO;
+import br.unipar.programacaointernet.pdv.dto.VendaDto;
 import br.unipar.programacaointernet.pdv.mapper.VendaMapper;
 import br.unipar.programacaointernet.pdv.objetos.Cliente;
 import br.unipar.programacaointernet.pdv.objetos.Venda;
@@ -33,7 +34,13 @@ public class VendaService {
     public void deletar(Venda venda) {
         repository.remove(venda);
     }
-    public String GerarRelatorio() { return repository.GerarRelatorioVendas();}
+    public List<VendaDto> GerarRelatorio() {
+        List<Cliente> listaClientes = clienteRepository.getAll();
+        List<Venda> listaVendas = repository.getAll();
+
+        return VendaMapper.toDto(listaVendas, listaClientes);
+
+    }
 
     public List<TotalVendaClienteDTO> totalVendaCliente() {
         List<Cliente> listaClientes = clienteRepository.getAll();
